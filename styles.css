@@ -1,0 +1,607 @@
+/* Converting from Tailwind to vanilla CSS with modern design */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Di Creme Brand Colors */
+  --primary: #e4829c;
+  --primary-foreground: #fefefe;
+  --secondary: #3b384a;
+  --secondary-foreground: #fefefe;
+  --background: #fefefe;
+  --foreground: #3b384a;
+  --muted-foreground: #6b7280;
+  --card: #ffffff;
+  --card-foreground: #3b384a;
+  --border: #e5e7eb;
+
+  /* Typography */
+  --font-serif: "Space Grotesk", sans-serif;
+  --font-sans: "DM Sans", sans-serif;
+
+  /* Spacing */
+  --container-padding: 1rem;
+  --section-padding: 5rem 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--foreground);
+  background: linear-gradient(135deg, var(--background) 0%, #f9fafb 100%);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Navigation */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(20px);
+  background: rgba(254, 254, 254, 0.9);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  height: 5rem;
+  width: 4rem;
+}
+
+.nav-title {
+  margin-left: 0.75rem;
+  font-size: 1.25rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.nav-links {
+  display: none;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: var(--foreground);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.nav-cta {
+  padding: 0.5rem 1.5rem;
+  font-size: 0.875rem;
+}
+
+/* Buttons */
+.whatsapp-btn {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: 9999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.whatsapp-btn:hover {
+  background: #d1708a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(228, 130, 156, 0.3);
+}
+
+.btn-primary {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+.btn-secondary {
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  background: transparent;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* Hero Section */
+.hero-section {
+  padding-top: 4rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(59, 56, 74, 0.1), rgba(228, 130, 156, 0.05));
+}
+
+.hero-container {
+  position: relative;
+  z-index: 10;
+}
+
+.hero-grid {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.hero-description {
+  font-size: 1.25rem;
+  color: var(--muted-foreground);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.image-container {
+  position: relative;
+}
+
+.hero-img {
+  width: 100%;
+  height: auto;
+  margin-top: 5%;
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.hero-img:hover {
+  transform: translateY(-5px);
+}
+
+.badge {
+  position: absolute;
+  top: 1rem;
+  right: -1rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 1.125rem;
+  box-shadow: 0 10px 25px rgba(228, 130, 156, 0.3);
+}
+
+/* Benefits Section */
+.benefits-section {
+  padding: var(--section-padding);
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.section-description {
+  font-size: 1.25rem;
+  color: var(--muted-foreground);
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.benefits-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.benefit-card {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 1rem;
+  background: var(--card);
+  color: var(--card-foreground);
+  transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+}
+
+.benefit-icon {
+  width: 4rem;
+  height: 4rem;
+  background: rgba(228, 130, 156, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--primary);
+}
+
+.benefit-title {
+  font-size: 1.5rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.benefit-description {
+  color: var(--muted-foreground);
+}
+
+/* Urgency Section */
+.urgency-section {
+  padding: var(--section-padding);
+  background: linear-gradient(to right, rgba(228, 130, 156, 0.05), rgba(59, 56, 74, 0.05));
+}
+
+.urgency-container {
+  max-width: 64rem;
+  text-align: center;
+}
+
+.urgency-title {
+  font-size: 2.5rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--foreground);
+}
+
+.urgency-description {
+  font-size: 1.25rem;
+  color: var(--muted-foreground);
+  margin-bottom: 3rem;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 3rem;
+  max-width: 24rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.countdown-item {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.countdown-item:hover {
+  transform: translateY(-2px);
+}
+
+.countdown-number {
+  font-size: 1.875rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.countdown-label {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.urgency-cta {
+  padding: 1rem 2.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  box-shadow: 0 10px 25px rgba(228, 130, 156, 0.3);
+}
+
+/* Trust Section */
+.trust-section {
+  padding: var(--section-padding);
+}
+
+.trust-grid {
+  display: grid;
+  gap: 4rem;
+  align-items: center;
+}
+
+.trust-img {
+  width: 100%;
+  height: auto;
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.trust-img:hover {
+  transform: translateY(-5px);
+}
+
+.trust-title {
+  font-size: 2.5rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--foreground);
+}
+
+.trust-text {
+  margin-bottom: 2rem;
+}
+
+.trust-text p {
+  font-size: 1.125rem;
+  color: var(--muted-foreground);
+  margin-bottom: 1.5rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 1.875rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+/* Final CTA Section */
+.final-cta-section {
+  padding: var(--section-padding);
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+.final-cta-container {
+  max-width: 64rem;
+  text-align: center;
+}
+
+.final-cta-title {
+  font-size: 2.5rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.final-cta-description {
+  font-size: 1.25rem;
+  color: var(--muted-foreground);
+  margin-bottom: 2rem;
+}
+
+.final-cta-btn {
+  padding: 1.25rem 3rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  box-shadow: 0 15px 35px rgba(228, 130, 156, 0.4);
+}
+
+/* Footer */
+.footer {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  padding: 3rem 0;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.footer-logo-img {
+  height: 5rem;
+  width: 4rem;
+}
+
+.footer-logo-text {
+  margin-left: 0.75rem;
+  font-size: 1.25rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+}
+
+.footer-description {
+  color: var(--muted-foreground);
+}
+
+.footer-title {
+  font-size: 1.125rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.footer-info p {
+  color: var(--muted-foreground);
+  margin-bottom: 0.5rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  color: var(--muted-foreground);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-link:hover {
+  color: var(--primary);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
+  text-align: center;
+  color: var(--muted-foreground);
+}
+
+/* Animations */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.animate-fade-in-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animation-delay-200 {
+  transition-delay: 0.2s;
+}
+
+.animation-delay-400 {
+  transition-delay: 0.4s;
+}
+
+.animation-delay-600 {
+  transition-delay: 0.6s;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .nav-links {
+    display: flex;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-title {
+    font-size: 4rem;
+  }
+
+  .hero-buttons {
+    flex-direction: row;
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .trust-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 5rem;
+  }
+
+  .section-title {
+    font-size: 3rem;
+  }
+
+  .urgency-title {
+    font-size: 3rem;
+  }
+
+  .trust-title {
+    font-size: 3rem;
+  }
+
+  .final-cta-title {
+    font-size: 3rem;
+  }
+}
